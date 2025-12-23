@@ -1,0 +1,33 @@
+LOGICAL_FORM_PROMPT = """You are given a user input that may contain multiple sentences and background context.
+
+Your task is to:
+1. Identify all explicit or implicit factual claims assumed to be true.
+2. Convert each claim into a logical form of the format:
+   relationship(entity1, entity2)
+
+Rules:
+- Extract all factual claims, including those in background context.
+- Ignore opinions, hypotheticals, or questions without factual assumptions.
+- Output each logical form on a separate line.
+- Do NOT verify the claims.
+- Do NOT include explanations or extra text.
+
+User input:
+{query}
+"""
+
+REWRITE_LONG_PROMPT = """You are given a short user question that may contain either a true or a false premise.
+Rewrite it into a longer and more diverse user query while preserving the original premise.
+
+Additional requirements:
+- Vary sentence structure and phrasing to avoid templated patterns.
+- You may introduce mild ambiguity or additional context, but do not alter the factual premise.
+- The rewritten query should reflect how a user might naturally elaborate when asking a complex question.
+- Keep the query fluent, coherent, and realistic.
+
+Input:
+[ORIGINAL QUESTION]
+
+Output:
+[REWRITTEN QUERY]
+"""
